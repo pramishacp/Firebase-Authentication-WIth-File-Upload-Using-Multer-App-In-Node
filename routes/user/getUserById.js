@@ -8,7 +8,7 @@ const getUserById = async (req, res) => {
 
         const userMapped = mapUser(user);
         const resume = await findResumePath(userMapped.uid);
-        userMapped['resume'] = (resume.length)? resume[0].path: null;
+        userMapped['resume'] = (resume.length)? resume[0].file: null;
         
         return res.status(200).send({ user: userMapped })
     } catch (err) {

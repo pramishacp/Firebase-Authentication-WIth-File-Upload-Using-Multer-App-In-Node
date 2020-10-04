@@ -36,9 +36,10 @@ if (cluster.isMaster) {
   const config = require('./config');
 
   mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
-
+  
+  const serviceAccount = require('./firebase/provider-customer-application-firebase-adminsdk-y7s5l-5558fbc026.json')
   admin.initializeApp({
-    credential: admin.credential.cert(config.firebase.credential),
+    credential: admin.credential.cert(serviceAccount),
     databaseURL: config.firebase.databaseURL
   });
 

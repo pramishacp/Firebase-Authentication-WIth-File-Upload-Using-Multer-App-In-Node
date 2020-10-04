@@ -21,7 +21,7 @@ const listUsersNearby = async (req, res) => {
         const resumes = await findResumePath(uidArray);
         var mergedArray = users.map(user => {
             const resume = resumes.find(resume => resume.uid === user.uid);
-            user['resume'] = resume? resume.path: null;
+            user['resume'] = resume? resume.file: null;
             return user; 
         })
         return res.status(200).send({ users: mergedArray  })

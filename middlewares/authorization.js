@@ -9,6 +9,7 @@ module.exports.hasRole = function hasRole(roles) {
         }
     };
 }
+
 module.exports.isAuthorized = function isAuthorized(opts) {
     return (req, res, next) => {
         const { role, uid } = res.locals;

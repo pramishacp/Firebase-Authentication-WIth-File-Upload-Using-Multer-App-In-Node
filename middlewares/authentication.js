@@ -1,4 +1,5 @@
 const admin = require("firebase-admin");
+
 const isAuthenticated = async (req, res, next) => {
     const { authorization } = req.headers;
     if (!authorization) {
@@ -24,6 +25,7 @@ const isAuthenticated = async (req, res, next) => {
         return res.status(401).send({ message: 'Unauthorized' });
     }
 }
+
 module.exports = {
     isAuthenticated: isAuthenticated
 }

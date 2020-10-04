@@ -1,5 +1,6 @@
 
 const admin = require("firebase-admin");
+
 const createNewUser = async (req, res) => {
     try {
         let { displayName, email, phoneNumber, latitude, longitude, role, designation } = req.body;
